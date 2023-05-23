@@ -14,6 +14,7 @@ class Obat055Controller extends \yii\web\Controller
         return $this->render('index', [
         'dataProvider' => $dataProvider
         ]);
+        
     }
 
 }
