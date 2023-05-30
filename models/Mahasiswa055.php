@@ -5,15 +5,15 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "mahasiswa_055".
+ * This is the model class for table "mahasiswa055".
  *
- * @property int $Id
- * @property string $Nim
- * @property string $Nama
- * @property string $Kelas
- * @property string $Jurusan
+ * @property int $id055
+ * @property string $nim055
+ * @property string $nama055
+ * @property string $kelas055
+ * @property string $status055
  *
- * @property Profil055[] $profil055
+ * @property Profil055[] $profil055s
  */
 class Mahasiswa055 extends \yii\db\ActiveRecord
 {
@@ -22,7 +22,7 @@ class Mahasiswa055 extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'mahasiswa_055';
+        return 'mahasiswa055';
     }
 
     /**
@@ -31,12 +31,8 @@ class Mahasiswa055 extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Id', 'Nim', 'Nama', 'Kelas', 'Jurusan'], 'required'],
-            [['Id'], 'integer'],
-            [['Nim'], 'string', 'max' => 13],
-            [['Nama', 'Jurusan'], 'string', 'max' => 100],
-            [['Kelas'], 'string', 'max' => 10],
-            [['Id'], 'unique'],
+            [['nim055', 'nama055', 'kelas055', 'status055'], 'required'],
+            [['nim055', 'nama055', 'kelas055', 'status055'], 'string', 'max' => 255],
         ];
     }
 
@@ -46,21 +42,11 @@ class Mahasiswa055 extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'Id' => 'ID',
-            'Nim' => 'No.Induk Mahasiswa',
-            'Nama' => 'Nama Mahasiswa',
-            'Kelas' => 'Kelas',
-            'Jurusan' => 'Jurusan',
+            'id055' => 'ID',
+            'nim055' => 'No Induk Mahasiswa',
+            'nama055' => 'Nama Mahasiswa',
+            'kelas055' => 'Kelas',
+            'status055' => 'Status',
         ];
-    }
-
-    /**
-     * Gets query for [[Profil055]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getProfil055()
-    {
-        return $this->hasOne(Profil055::class, ['Id_mahasiswa' => 'Id']);
     }
 }

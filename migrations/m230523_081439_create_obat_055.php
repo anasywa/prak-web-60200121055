@@ -12,6 +12,13 @@ class m230523_081439_create_obat_055 extends Migration
      */
     public function safeUp()
     {
+        $this->createTable('obat_055', [
+            'id' => $this->primaryKey(),
+            'kode_obat' =>$this->string()->notNull(),
+            'harga' =>$this->decimal(10,0)->notNull(),
+            'stok_obat' =>$this->integer()->notNull()
+        ]);
+
 
     }
 
@@ -20,12 +27,7 @@ class m230523_081439_create_obat_055 extends Migration
      */
     public function safeDown()
     {
-        $this->createTable('obat_055', [
-            'id' => $this->primaryKey(),
-            'kode_obat' =>$this->string()->notNull(),
-            'harga' =>$this->decimal(10,0)->notNull(),
-            'stok_obat' =>$this->integer()->notNull(),
-        ]);
+        echo "m230523_081439_obat_055 cannot be reverted.\n";
 
 
         return false;
